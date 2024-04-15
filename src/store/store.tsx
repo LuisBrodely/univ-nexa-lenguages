@@ -14,6 +14,7 @@ type Actions = {
   addSection: (section: SectionWithScore) => void;
   increaseScore: (sectionId: number) => void;
   getSectionScore: (sectionId: number) => number;
+  resetSectionScore: (sectionId: number) => void;
 };
 
 type StateWithActions = State & Actions;
@@ -36,6 +37,12 @@ const useSectionStore = create<StateWithActions>((set, get) => ({
     const section = get().sections.find((s) => s.id === sectionId);
     return section ? section.score : 0;
   },
+  resetSectionScore: (sectionId) => set((state) => ({
+    sections: state.sections.map((section) => ({
+      ...section,
+      score: section.id === sectionId ? 0 : section.score,
+    })),
+  })),
 }));
 
 export default useSectionStore;

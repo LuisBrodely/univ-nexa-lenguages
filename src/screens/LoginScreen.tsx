@@ -13,44 +13,38 @@ import { Ionicons } from "@expo/vector-icons";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../types";
 import AppTextInput from "../components/AppTextInput";
+import { Icon } from "react-native-paper";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Login">;
 
 export const LoginScreen: React.FC<Props> = ({ navigation: { navigate } }) => {
   return (
-    <SafeAreaView>
-      <View
-        style={{
-          padding: Spacing * 2,
-        }}
-      >
+    <SafeAreaView style={{
+      paddingHorizontal: 20,
+      height: '100%'
+    }}>
+      <View style={{ flex: 1, height: '100%', justifyContent: "center" }}>
         <View
           style={{
             alignItems: "center",
           }}
         >
-          <Text
-            style={{
-              fontSize: FontSize.xLarge,
-              color: Colors.primary,
-              marginVertical: Spacing * 3,
-            }}
-          >
-            Login here
+          <Icon
+            source='message-bookmark'
+            size={48}
+            color={Colors.primary}
+          />
+          <Text style={{ fontSize: 38, marginBottom: 4, marginTop: 10, fontWeight: "600", color: Colors.text, textAlign: "center" }}>
+            Iniciar Sesión
           </Text>
-          <Text
-            style={{
-              fontSize: FontSize.large,
-              maxWidth: "60%",
-              textAlign: "center",
-            }}
-          >
-            Welcome back you've been missed!
+          <Text style={{ fontSize: 18, marginBottom: 4, color: Colors.gray, textAlign: "center" }}>
+            Ingresa tus datos para comenzar
           </Text>
         </View>
         <View
           style={{
-            marginVertical: Spacing * 3,
+            marginTop: 24,
+            gap: 6,
           }}
         >
           <AppTextInput placeholder="Email" />
@@ -58,14 +52,8 @@ export const LoginScreen: React.FC<Props> = ({ navigation: { navigate } }) => {
         </View>
 
         <View>
-          <Text
-            style={{
-              fontSize: FontSize.small,
-              color: Colors.primary,
-              alignSelf: "flex-end",
-            }}
-          >
-            Forgot your password ?
+          <Text style={{ fontSize: 18, marginBottom: 6, marginTop: 14, color: Colors.secondaryC, alignSelf: "flex-end" }}>
+            ¿Olvidaste tu contraseña?
           </Text>
         </View>
 
@@ -74,7 +62,7 @@ export const LoginScreen: React.FC<Props> = ({ navigation: { navigate } }) => {
             padding: Spacing * 2,
             backgroundColor: Colors.primary,
             marginVertical: Spacing * 3,
-            borderRadius: Spacing,
+            borderRadius: 8,
             shadowColor: Colors.primary,
             shadowOffset: {
               width: 0,
@@ -89,96 +77,30 @@ export const LoginScreen: React.FC<Props> = ({ navigation: { navigate } }) => {
             style={{
               color: Colors.onPrimary,
               textAlign: "center",
-              fontSize: FontSize.large,
+              fontSize: 20,
             }}
 
             >
-            Sign in
+            Iniciar sesión
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => navigate("Register", { name: 'XD' })}
+          onPress={() => navigate("Register")}
           style={{
-            padding: Spacing,
+            padding: 12,
           }}
         >
           <Text
             style={{
               color: Colors.text,
               textAlign: "center",
-              fontSize: FontSize.small,
+              fontWeight: "500",
+              fontSize: 18,
             }}
           >
-            Create new account
+            Crear una cuenta nueva
           </Text>
         </TouchableOpacity>
-
-        <View
-          style={{
-            marginVertical: Spacing * 3,
-          }}
-        >
-          <Text
-            style={{
-              color: Colors.primary,
-              textAlign: "center",
-              fontSize: FontSize.small,
-            }}
-          >
-            Or continue with
-          </Text>
-
-          <View
-            style={{
-              marginTop: Spacing,
-              flexDirection: "row",
-              justifyContent: "center",
-            }}
-          >
-            <TouchableOpacity
-              style={{
-                padding: Spacing,
-                backgroundColor: Colors.gray,
-                borderRadius: Spacing / 2,
-                marginHorizontal: Spacing,
-              }}
-            >
-              <Ionicons
-                name="logo-google"
-                color={Colors.text}
-                size={Spacing * 2}
-              />
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{
-                padding: Spacing,
-                backgroundColor: Colors.gray,
-                borderRadius: Spacing / 2,
-                marginHorizontal: Spacing,
-              }}
-            >
-              <Ionicons
-                name="logo-apple"
-                color={Colors.text}
-                size={Spacing * 2}
-              />
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{
-                padding: Spacing,
-                backgroundColor: Colors.gray,
-                borderRadius: Spacing / 2,
-                marginHorizontal: Spacing,
-              }}
-            >
-              <Ionicons
-                name="logo-facebook"
-                color={Colors.text}
-                size={Spacing * 2}
-              />
-            </TouchableOpacity>
-          </View>
-        </View>
       </View>
     </SafeAreaView>
   );

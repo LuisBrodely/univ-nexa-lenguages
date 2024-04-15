@@ -11,102 +11,76 @@ import FontSize from "../constants/FontSize";
 import Colors from "../constants/Colors";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../types";
+import { Button, Icon } from "react-native-paper";
 const { height } = Dimensions.get("window");
 
 type Props = NativeStackScreenProps<RootStackParamList, "Welcome">;
 
 export const WelcomeScreen = ({ navigation: { navigate } }: Props) => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{
+      paddingHorizontal: 12,
+      paddingVertical: 24,
+    }}>
       <View>
-        <ImageBackground
-          style={{
-            height: height / 2.5,
-          }}
-          resizeMode="contain"
-          source={require("../../assets/welcome-img.png")}
-        />
         <View
           style={{
             paddingHorizontal: Spacing * 4,
-            paddingTop: Spacing * 4,
+            marginTop: 120,
           }}
         >
-          <Text
-            style={{
-              fontSize: FontSize.xxLarge,
-              color: Colors.primary,
-              textAlign: "center",
-            }}
-          >
-            Nexa Lenguages
+          <View style={{ alignItems: "center", flexDirection: 'row' }}>
+            <Icon
+              source='message-bookmark'
+              size={32}
+              color={Colors.secondaryC}
+            />
+            <Text
+              style={{
+                marginLeft: 6,
+                marginTop: -6,
+                fontSize: 18,
+                fontWeight: '600',
+                color: Colors.text
+              }}
+            >
+              Nexa Lenguages
+            </Text>
+          </View>
+        </View>
+        <View style={{ marginLeft: 20, marginVertical: 28, width: '80%'}}>
+          <Text style={{ fontWeight: "800", fontSize: 62, marginBottom: 26}}>
+            Aprende{' '}
+            <Text style={{color: Colors.secondaryC}}>Ingles{' '}</Text>
+            de Forma{' '}
+            <Text style={{color: Colors.primaryC}}>Divertida</Text>
           </Text>
-
-          <Text
-            style={{
-              fontSize: FontSize.small,
-              color: Colors.text,
-              textAlign: "center",
-              marginTop: Spacing * 2,
-            }}
-          >
-            Explore all the existing job roles based or your interest and study
-            major
+          <Text style={{ fontSize: 18, marginBottom: 4, color: Colors.gray }}>
+            Descubre una nueva experiencia con nuestra app. ¡Explora, aprende y disfruta!
           </Text>
         </View>
         <View
           style={{
-            paddingHorizontal: Spacing * 2,
-            paddingTop: Spacing * 6,
             flexDirection: "row",
+            marginLeft: 20, 
+            marginTop: 20,
+            gap: 8
           }}
         >
-          <TouchableOpacity
-            onPress={() => navigate("Login")}
-            style={{
-              backgroundColor: Colors.primary,
-              paddingVertical: Spacing * 1.5,
-              paddingHorizontal: Spacing * 2,
-              width: "48%",
-              borderRadius: Spacing,
-              shadowColor: Colors.primary,
-              shadowOffset: {
-                width: 0,
-                height: Spacing,
-              },
-              shadowOpacity: 0.3,
-              shadowRadius: Spacing,
-            }}
+          <Button
+            mode="contained"
+            buttonColor={Colors.primary}
+            onPress={() => navigate('Login')}
           >
-            <Text
-              style={{
-                color: Colors.onPrimary,
-                fontSize: FontSize.large,
-                textAlign: "center",
-              }}
-            >
-              Login
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => navigate("Register", {name: 'XD1'})}
-            style={{
-              paddingVertical: Spacing * 1.5,
-              paddingHorizontal: Spacing * 2,
-              width: "48%",
-              borderRadius: Spacing,
-            }}
+            <Text style={{fontSize: 18}}>Iniciar sesión</Text>
+          </Button>
+          <Button
+            mode="contained"
+            buttonColor={Colors.primaryC}
+            onPress={() => navigate('Register')}
           >
-            <Text
-              style={{
-                color: Colors.text,
-                fontSize: FontSize.large,
-                textAlign: "center",
-              }}
-            >
-              Register
-            </Text>
-          </TouchableOpacity>
+            <Text style={{fontSize: 18}}>Registrarme</Text>
+          </Button>
         </View>
       </View>
     </SafeAreaView>

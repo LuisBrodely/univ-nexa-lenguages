@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Text, View } from "react-native";
-import { Button, Icon, IconButton } from "react-native-paper";
+import { Icon, IconButton, Button } from "react-native-paper";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../types";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -8,6 +8,8 @@ import Colors from "../constants/Colors";
 import useSectionStore from "../store/store";
 import PieChart from 'react-native-pie-chart'
 import { Question } from "../models/Question";
+import Spacing from "../constants/Spacing";
+import { TouchableOpacity } from "react-native";
 
 
 type Props = NativeStackScreenProps<RootStackParamList, "Results">;
@@ -22,6 +24,11 @@ export const ResultsScreen = ({ route, navigation: { navigate } }: Props) => {
   const widthAndHeight = 250
   const series = [sectionScore, questions.length - sectionScore]
   const sliceColor = sectionId % 2 == 0 ? [Colors.primary, Colors.secondaryC] : [Colors.primaryC, Colors.secondary] 
+
+  const resetScore = () => {
+    useSectionStore.getState().resetSectionScore(sectionId);
+    navigate('Home');
+  };
 
   return (
     <SafeAreaView
@@ -58,6 +65,31 @@ export const ResultsScreen = ({ route, navigation: { navigate } }: Props) => {
             color={sectionId % 2 == 0 ? Colors.primary : Colors.primaryC}
           />
         </View>
+      </View>
+      <View>
+        <Button
+          mode="contained"
+          buttonColor={Colors.primaryC}
+          icon="repeat"
+          labelStyle={{ fontSize: 18 }}
+          style={{ marginTop: 140, paddingVertical: 8, justifyContent: "center" }}
+          contentStyle={{ flexDirection: 'row-reverse' }} 
+          onPress={resetScore}
+        >
+          Repetir
+        </Button>
+        <Button
+          mode="contained"
+          buttonColor={Colors.secondary}
+          textColor={Colors.text}
+          labelStyle={{ fontSize: 18 }}
+          style={{ marginTop: 20, paddingVertical: 8, justifyContent: "center" }}
+          onPress={() => navigate('Home')}
+          contentStyle={{ flexDirection: 'row-reverse' }} 
+          icon="home"
+        >
+          Regresar al inicio
+        </Button>
       </View>
     </SafeAreaView>
   );

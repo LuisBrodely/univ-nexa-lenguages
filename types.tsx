@@ -17,7 +17,7 @@ declare global {
 export type RootStackParamList = {
   Welcome: undefined;
   Login: undefined;
-  Register: { name: string };
+  Register: undefined;
   Home: undefined;
   Question: { questions: Question[], icon: string, section: string };
   Results: { icon: string, section: string, sectionId: number, questions: Question[] };

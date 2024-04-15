@@ -5,7 +5,6 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import Colors from "../constants/Colors";
-import FontSize from "../constants/FontSize";
 import Spacing from "../constants/Spacing";
 
 const AppTextInput: React.FC<TextInputProps> = ({ ...otherProps }) => {
@@ -17,17 +16,18 @@ const AppTextInput: React.FC<TextInputProps> = ({ ...otherProps }) => {
       placeholderTextColor={Colors.darkText}
       style={[
         {
-          fontSize: FontSize.small,
-          padding: Spacing * 2,
+          fontSize: 16,
+          paddingHorizontal: 20,
+          paddingVertical: 14,
           backgroundColor: Colors.lightPrimary,
           borderRadius: Spacing,
           marginVertical: Spacing,
         },
         focused && {
           borderWidth: 3,
-          borderColor: Colors.primary,
+          borderColor: Colors.gray,
           shadowOffset: { width: 4, height: Spacing },
-          shadowColor: Colors.primary,
+          shadowColor: Colors.gray,
           shadowOpacity: 0.2,
           shadowRadius: Spacing,
         },
