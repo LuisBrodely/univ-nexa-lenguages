@@ -1,6 +1,7 @@
 export interface Question  {
   id: number;
   sectionId: number;
+  img: string;
   questionText: string;
   options: Option[];
   explanation: string;

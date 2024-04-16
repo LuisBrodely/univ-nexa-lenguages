@@ -50,7 +50,7 @@ export const ResultsScreen = ({ route, navigation: { navigate } }: Props) => {
           Section Score {sectionScore}/{questions.length}
         </Text>
       </View>
-      <View style={{ justifyContent: "center", alignItems: "center", marginTop: 20 }}>
+      <View style={{ justifyContent: "center", alignItems: "center", marginTop: 32 }}>
         <PieChart
           widthAndHeight={widthAndHeight}
           series={series}
@@ -69,10 +69,10 @@ export const ResultsScreen = ({ route, navigation: { navigate } }: Props) => {
       <View>
         <Button
           mode="contained"
-          buttonColor={Colors.primaryC}
+          buttonColor={sectionId % 2 == 0 ? Colors.primary : Colors.primaryC}
           icon="repeat"
           labelStyle={{ fontSize: 18 }}
-          style={{ marginTop: 140, paddingVertical: 8, justifyContent: "center" }}
+          style={{ marginTop: 110, paddingVertical: 8, justifyContent: "center" }}
           contentStyle={{ flexDirection: 'row-reverse' }} 
           onPress={resetScore}
         >
@@ -80,8 +80,8 @@ export const ResultsScreen = ({ route, navigation: { navigate } }: Props) => {
         </Button>
         <Button
           mode="contained"
-          buttonColor={Colors.secondary}
-          textColor={Colors.text}
+          buttonColor={sectionId % 2 == 0 ? Colors.secondaryC : Colors.secondary}
+          textColor={'#ffffff'}
           labelStyle={{ fontSize: 18 }}
           style={{ marginTop: 20, paddingVertical: 8, justifyContent: "center" }}
           onPress={() => navigate('Home')}

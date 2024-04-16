@@ -2,6 +2,7 @@ import {
   SafeAreaView,
   Text,
   TouchableOpacity,
+  Vibration,
   View,
 } from "react-native";
 import React from "react";
@@ -65,7 +66,9 @@ return (
             shadowOpacity: 0.3,
             shadowRadius: Spacing,
           }}
-          onPress={() => navigate("Home")}
+          onPress={() => {
+            navigate("Login")
+          }}
         >
           <Text
             style={{

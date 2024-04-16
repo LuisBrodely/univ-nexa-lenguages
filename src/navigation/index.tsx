@@ -16,6 +16,7 @@ import Colors from "../constants/Colors";
 
 import { RootStackParamList } from "../../types";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { ProfileScreen } from "../screens/ProfileScreen";
 
 const theme = {
   ...DefaultTheme,
@@ -52,6 +53,7 @@ function RootNavigator() {
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="Question" component={QuestionScreen}></Stack.Screen>
       <Stack.Screen name="Results" component={ResultsScreen}/>
+      <Stack.Screen name="Profile" component={ProfileScreen}></Stack.Screen>
     </Stack.Navigator>
   );
 }

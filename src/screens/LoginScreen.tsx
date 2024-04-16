@@ -3,6 +3,7 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
+  Vibration,
   View,
 } from "react-native";
 import React from "react";
@@ -71,7 +72,9 @@ export const LoginScreen: React.FC<Props> = ({ navigation: { navigate } }) => {
             shadowOpacity: 0.3,
             shadowRadius: Spacing,
           }}
-          onPress={() => navigate("Home")}
+          onPress={() => {
+            navigate("Home")
+          }}
         >
           <Text
             style={{
