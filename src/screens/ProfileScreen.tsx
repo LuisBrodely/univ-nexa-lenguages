@@ -73,7 +73,7 @@ export const ProfileScreen = ({ navigation: { navigate } }: Props) => {
             marginBottom: 16
           }}
         >
-          <Avatar.Image size={120} source={require("../../assets/me.jpg")} />
+          <Avatar.Icon size={120} icon='account' />
           <Text
             style={{
               fontSize: 38,

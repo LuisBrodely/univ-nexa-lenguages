@@ -30,7 +30,7 @@ return (
           }}
         >
           <Icon
-            source='message-bookmark'
+            source='assistant'
             size={48}
             color={Colors.primaryC}
           />
@@ -47,7 +47,8 @@ return (
             gap: 6,
           }}
         >
-          <AppTextInput placeholder="Correo" />
+          <AppTextInput placeholder="Nombre completo" />
+          <AppTextInput placeholder="Correo electronico" />
           <AppTextInput placeholder="Contraseña" />
           <AppTextInput placeholder="Confirmar contraseña" />
         </View>

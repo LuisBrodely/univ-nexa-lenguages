@@ -17,6 +17,7 @@ import Colors from "../constants/Colors";
 import { RootStackParamList } from "../../types";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ProfileScreen } from "../screens/ProfileScreen";
+import { TalkGPTScreen } from "../screens/TalkGPTScreen";
 
 const theme = {
   ...DefaultTheme,
@@ -54,6 +55,7 @@ function RootNavigator() {
       <Stack.Screen name="Question" component={QuestionScreen}></Stack.Screen>
       <Stack.Screen name="Results" component={ResultsScreen}/>
       <Stack.Screen name="Profile" component={ProfileScreen}></Stack.Screen>
+      <Stack.Screen name="TalkGPT" component={TalkGPTScreen}></Stack.Screen>
     </Stack.Navigator>
   );
 }

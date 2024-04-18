@@ -29,7 +29,22 @@ export const HomeScreen = ({ navigation }: Props) => {
           alignItems: "center",
         }}
       >
-        <Avatar.Image size={36} source={require("../../assets/me.jpg")} />
+        <View style={{alignItems: "center", flexDirection: "row", gap: 4}}>
+          <IconButton
+            icon="assistant"
+            size={32}
+            iconColor={'#FFFFFF'}
+            containerColor={Colors.primary}
+            mode="contained"
+            onPress={() => {
+              Vibration.vibrate(20);
+              navigation.navigate("TalkGPT");
+            }}
+          />
+          <Text style={{ fontSize: 18, color: Colors.gray }}>
+            Hi, Brodely!
+          </Text>
+        </View>
         <IconButton
           icon="menu"
           size={32}
@@ -44,6 +59,7 @@ export const HomeScreen = ({ navigation }: Props) => {
         contentContainerStyle={{
           paddingBottom: 100,
           flexGrow: 1,
+          paddingHorizontal: 4
         }}
         showsVerticalScrollIndicator={false} 
       >
@@ -53,9 +69,6 @@ export const HomeScreen = ({ navigation }: Props) => {
             marginTop: 18,
           }}
         >
-          <Text style={{ fontSize: 18, marginBottom: 4, color: Colors.gray }}>
-            Hi, Brodely!
-          </Text>
           <Text style={{ fontSize: 38, fontWeight: "500", color: Colors.text }}>
             Your tasks for today
           </Text>

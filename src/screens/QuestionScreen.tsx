@@ -109,7 +109,8 @@ export const QuestionScreen = ({ route, navigation }: Props) => {
             marginTop: 16,
           }}
         >
-          <Avatar.Image size={200} source={require("../../assets/me.jpg")} />
+          {currentQuestion.img && <Avatar.Image size={200} source={{ uri: currentQuestion.img }} />}
+          {currentQuestion.icon && <Avatar.Icon size={200} icon={currentQuestion.icon} />}
         </View>
         <Text
           style={{

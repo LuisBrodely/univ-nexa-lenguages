@@ -31,7 +31,7 @@ export const LoginScreen: React.FC<Props> = ({ navigation: { navigate } }) => {
           }}
         >
           <Icon
-            source='message-bookmark'
+            source='assistant'
             size={48}
             color={Colors.primary}
           />

@@ -22,6 +22,7 @@ export type RootStackParamList = {
   Question: { questions: Question[], icon: string, section: string };
   Results: { icon: string, section: string, sectionId: number, questions: Question[] };
   Profile: undefined;
+  TalkGPT: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =

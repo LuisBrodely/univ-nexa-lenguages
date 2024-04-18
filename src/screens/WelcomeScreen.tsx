@@ -31,14 +31,14 @@ export const WelcomeScreen = ({ navigation: { navigate } }: Props) => {
         >
           <View style={{ alignItems: "center", flexDirection: 'row' }}>
             <Icon
-              source='message-bookmark'
+              source='assistant'
               size={32}
               color={Colors.secondaryC}
             />
             <Text
               style={{
                 marginLeft: 6,
-                marginTop: -6,
+                marginTop: -2,
                 fontSize: 18,
                 fontWeight: '600',
                 color: Colors.text

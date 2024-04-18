@@ -1,11 +1,11 @@
 export interface Question  {
   id: number;
   sectionId: number;
-  img: string;
+  img?: string;
   questionText: string;
   options: Option[];
   explanation: string;
-
+  icon?: string;
 };
 
 export interface Option {
